@@ -20,7 +20,7 @@ team_members:
 # ============================================================================
 github_repo: "https://github.com/akshat-nawaria/redrob-ranker"
 
-sandbox_link: ""  # Will update after deployment
+sandbox_link: "https://redrob-ranker-wysp8wshwmmgjhevm9jt5a.streamlit.app/"
 
 reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
 
