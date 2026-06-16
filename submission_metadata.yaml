@@ -1,0 +1,76 @@
+# Redrob Hackathon — Submission Metadata
+# Copy of submission_metadata_template.yaml, filled in.
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "SAD"
+
+primary_contact:
+  name: "Akshat Nawaria"
+  email: "akshatnawaria804@gmail.com"
+
+team_members:
+  - name: "Akshat Nawaria"
+    email: "akshatnawaria804@gmail.com"
+    role: "ML Engineer"
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/akshat-nawaria/redrob-ranker"
+
+sandbox_link: ""  # Will update after deployment
+
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Local Machine"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.11"
+  os: "Windows 11"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "Gemini (Antigravity IDE)"
+
+ai_usage_summary: |
+  Used Gemini for architecture discussion, code generation, and data analysis.
+  No candidate data was fed to any LLM during the ranking step.
+  The ranking logic is entirely deterministic and rule-based — no LLM calls
+  are made during inference.
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  Multi-stage rule-based ranker with explicit reasoning capture. Four-stage
+  pipeline: (1) honeypot detection + hard filters eliminate ~85K obviously
+  unfit candidates using JD-derived disqualifiers; (2) 8-axis weighted scoring
+  (title fit, trust-weighted skill relevance, career trajectory NLP analysis,
+  experience band, domain/industry, location, education, certifications);
+  (3) multiplicative behavioral modifier from 10 Redrob engagement signals
+  (recency, response rate, notice period, GitHub activity, etc.); (4) per-
+  candidate reasoning grounded in actual profile data. The skill scorer uses
+  a trust-multiplier (duration × endorsements × proficiency) to catch keyword
+  stuffers. Runtime: ~30 seconds for 100K candidates on CPU.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true

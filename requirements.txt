@@ -1,0 +1,5 @@
+# No external dependencies required!
+# The entire ranking pipeline runs on Python standard library only.
+#
+# For the Streamlit sandbox demo (optional):
+streamlit>=1.30.0
